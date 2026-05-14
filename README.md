@@ -1,4 +1,4 @@
-FOR THIS I WANT TO UPDATE AND MODIFY AND FINE TUNE IT TO  CONFLICT AWARE SYNTHESIS AS A PREGENERATION  VERIFICATION LAYER 
+# THIS I WANT TO UPDATE AND MODIFY AND FINE TUNE IT TO  CONFLICT AWARE SYNTHESIS AS A PREGENERATION  VERIFICATION LAYER 
 # SELF-RAG: Learning to Retrieve, Generate and Critique through Self-reflection
 
 This includes the original implementation of [SELF-RAG: Learning to Retrieve, Generate and Critique through self-reflection](https://arxiv.org/abs/2310.11511) (ICLR 2024, Oral top 1%) by Akari Asai, Zeqiu Wu, Yizhong Wang, Avirup Sil, and Hannaneh Hajishirzi.
