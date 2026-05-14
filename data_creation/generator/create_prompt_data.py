@@ -60,6 +60,12 @@ def main():
                     item["id"] = item["q_id"]
                 if "id" in item and "q_id" not in item:
                     item["q_id"] = item["id"]
+                if "q_id" not in item or "pred" not in item:
+                    print(f"Skipping invalid retrieval prediction item: {item}")
+                    continue
+                if "sent_idx" not in item:
+                    print(f"Skipping retrieval prediction without sent_idx for q_id={item['q_id']}: {item}")
+                    continue
                 qid2need_retrieval.setdefault(item["q_id"], {})
                 qid2need_retrieval[item["q_id"]][item["sent_idx"]] = item["pred"]
 
@@ -69,7 +75,9 @@ def main():
 
     for i in range(args.num_jobs):
         processed_data = []
-        dpr_data_i = dpr_data[batch_size*i:batch_size*(i+1)]
+        start = batch_size * i
+        end = batch_size * (i + 1) if i < args.num_jobs - 1 else len(dpr_data)
+        dpr_data_i = dpr_data[start:end]
         for item in dpr_data_i:
             dataset_name = item["dataset_name"]
             if dataset_name in TASK_DATA:
